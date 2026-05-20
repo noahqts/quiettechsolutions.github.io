@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiet Tech Solutions — Managed IT Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@300;400;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #1F3864;
+    --blue:    #2E75B6;
+    --sky:     #7DB8E0;
+    --ice:     #E8F3FB;
+    --white:   #FFFFFF;
+    --slate:   #4A5568;
+    --mist:    #F4F7FA;
+    --border:  #D1E3F0;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    font-family: 'Barlow', sans-serif;
+    background: var(--mist);
+    color: var(--navy);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    background: var(--white);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(31,56,100,0.12);
+  }
+
+  /* ── DECORATIVE BG BARS (top-right corner) ── */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 220px; height: 220px;
+    background:
+      linear-gradient(135deg, var(--ice) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 1;
+    background: var(--navy);
+    padding: 32px 48px 28px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  /* Logo: bar wordmark */
+  .logo-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bar-word {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  /* Each letter is an SVG column of bars */
+  .bar-word svg {
+    overflow: visible;
+  }
+
+  .logo-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    padding-left: 2px;
+  }
+
+  /* Header contact block */
+  .header-contact {
+    text-align: right;
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .header-contact strong {
+    display: block;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .header-contact a { color: var(--sky); text-decoration: none; }
+
+  /* ── HERO BAND ── */
+  .hero {
+    background: var(--blue);
+    padding: 18px 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-inner {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+  .hero p {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    font-style: italic;
+  }
+
+  /* ── MAIN BODY ── */
+  main {
+    position: relative;
+    z-index: 1;
+    padding: 32px 48px 24px;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 32px;
+  }
+
+  /* ── LEFT COLUMN ── */
+  .col-left { display: flex; flex-direction: column; gap: 24px; }
+
+  /* Section titles */
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  /* Intro text */
+  .intro p {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+  .intro p strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* Services grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .service-card {
+    background: var(--mist);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    border-left: 3px solid var(--blue);
+  }
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+  }
+  .service-card p {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* What's included list */
+  .included-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 16px;
+  }
+  .included-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--slate);
+    line-height: 1.4;
+  }
+  .included-item::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    min-width: 5px;
+    background: var(--blue);
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+
+  /* How it works */
+  .steps { display: flex; flex-direction: column; gap: 8px; }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .step-num {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0;
+    margin-top: 1px;
+  }
+  .step-text {
+    font-size: 11.5px;
+    color: var(--slate);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+  .step-text strong { color: var(--navy); font-weight: 600; }
+
+  /* ── RIGHT COLUMN ── */
+  .col-right { display: flex; flex-direction: column; gap: 20px; }
+
+  /* Pricing card */
+  .pricing-card {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 20px 18px;
+    color: white;
+  }
+  .pricing-card .section-title {
+    color: var(--sky);
+    border-color: rgba(125,184,224,0.3);
+    margin-bottom: 14px;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 11px;
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-label { color: rgba(255,255,255,0.7); font-weight: 300; }
+  .price-value {
+    color: white;
+    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    text-align: right;
+  }
+  .price-note {
+    font-size: 9.5px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 10px;
+    line-height: 1.5;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* Highlight band inside pricing */
+  .price-highlight {
+    background: rgba(46,117,182,0.35);
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .price-highlight .big {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  .price-highlight .small {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  /* Why us */
+  .why-card {
+    background: var(--ice);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .why-card .section-title { margin-bottom: 12px; }
+  .why-item {
+    display: flex;
+    gap: 9px;
+    margin-bottom: 9px;
+    font-size: 11px;
+    color: var(--slate);
+    line-height: 1.45;
+    font-weight: 300;
+  }
+  .why-item:last-child { margin-bottom: 0; }
+  .why-icon {
+    font-size: 13px;
+    min-width: 16px;
+    margin-top: 0px;
+  }
+  .why-item strong { color: var(--navy); font-weight: 600; display: block; }
+
+  /* Security badge */
+  .security-badge {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+  }
+  .security-badge p {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+  .security-badge strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    background: var(--navy);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+  }
+  .footer-tagline span { color: var(--sky); font-weight: 600; font-style: normal; }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .page {
+      width: 100%; min-height: 100vh;
+      box-shadow: none; margin: 0;
+    }
+    @page { margin: 0; size: letter; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <div class="bar-word">
+        <!-- QUIET spelled in volume bars — white on navy -->
+        <svg width="186" height="44" viewBox="0 0 186 44">
+          <!-- Q: tall-mid-low-mid-tall + tail -->
+          <rect x="0"  y="6"  width="6" height="36" rx="2" fill="white"/>
+          <rect x="8"  y="14" width="6" height="28" rx="2" fill="white"/>
+          <rect x="16" y="28" width="6" height="14" rx="2" fill="white"/>
+          <rect x="24" y="20" width="6" height="22" rx="2" fill="white"/>
+          <rect x="32" y="6"  width="6" height="36" rx="2" fill="white"/>
+          <rect x="35" y="36" width="7" height="10" rx="2" fill="#7DB8E0" transform="rotate(35,38,41)"/>
+          <!-- U -->
+          <rect x="48" y="6"  width="6" height="36" rx="2" fill="white"/>
+          <rect x="56" y="14" width="6" height="28" rx="2" fill="white"/>
+          <rect x="64" y="28" width="6" height="14" rx="2" fill="white"/>
+          <rect x="72" y="28" width="6" height="14" rx="2" fill="white"/>
+          <rect x="80" y="14" width="6" height="28" rx="2" fill="white"/>
+          <rect x="88" y="6"  width="6" height="36" rx="2" fill="white"/>
+          <!-- I -->
+          <rect x="102" y="32" width="6" height="10" rx="2" fill="white"/>
+          <rect x="110" y="32" width="6" height="10" rx="2" fill="white"/>
+          <rect x="118" y="6"  width="6" height="36" rx="2" fill="white"/>
+          <rect x="126" y="32" width="6" height="10" rx="2" fill="white"/>
+          <rect x="134" y="32" width="6" height="10" rx="2" fill="white"/>
+          <!-- E: left-heavy descending -->
+          <rect x="148" y="6"  width="6" height="36" rx="2" fill="white"/>
+          <rect x="156" y="14" width="6" height="28" rx="2" fill="white"/>
+          <rect x="164" y="20" width="6" height="22" rx="2" fill="#7DB8E0"/>
+          <rect x="172" y="28" width="6" height="14" rx="2" fill="#7DB8E0" opacity="0.5"/>
+          <rect x="180" y="34" width="6" height="8"  rx="2" fill="#7DB8E0" opacity="0.22"/>
+        </svg>
+
+        <!-- T as a separate SVG to avoid overlap -->
+        <svg width="62" height="44" viewBox="0 0 62 44">
+          <!-- T: peak centre -->
+          <rect x="0"  y="34" width="6" height="8"  rx="2" fill="white" opacity="0.2"/>
+          <rect x="8"  y="28" width="6" height="14" rx="2" fill="white" opacity="0.45"/>
+          <rect x="16" y="20" width="6" height="22" rx="2" fill="white"/>
+          <rect x="24" y="6"  width="6" height="36" rx="2" fill="white"/>
+          <rect x="32" y="20" width="6" height="22" rx="2" fill="white"/>
+          <rect x="40" y="28" width="6" height="14" rx="2" fill="white" opacity="0.45"/>
+          <rect x="48" y="34" width="6" height="8"  rx="2" fill="white" opacity="0.2"/>
+        </svg>
+      </div>
+      <div class="logo-sub">Tech Solutions &nbsp;·&nbsp; Managed IT &nbsp;·&nbsp; Lancaster, PA</div>
+    </div>
+
+    <div class="header-contact">
+      <strong>Noah Kwiat</strong>
+      Founder &amp; Lead Engineer<br>
+      noah@quiettechsolutions.com<br>
+      <a href="https://quiettechsolutions.com">quiettechsolutions.com</a>
+    </div>
+  </header>
+
+  <!-- HERO BAND -->
+  <div class="hero">
+    <div class="hero-inner">
+      <h1>Managed IT that stays out of your way.</h1>
+      <p>One flat monthly rate. No surprises. No downtime.</p>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <!-- LEFT COLUMN -->
+    <div class="col-left">
+
+      <!-- Intro -->
+      <div class="intro">
+        <div class="section-title">Who We Are</div>
+        <p>
+          Quiet Tech Solutions is a Lancaster-based managed IT provider built for small businesses
+          who need <strong>real expertise without the big-MSP price tag.</strong> Founded by a senior
+          network engineer, we manage your technology so you can focus on running your business —
+          not troubleshooting it. We take on a small number of clients intentionally,
+          so every client gets direct access to senior-level talent, every time.
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div class="services">
+        <div class="section-title">What We Manage</div>
+        <div class="services-grid">
+
+          <div class="service-card">
+            <h3>24/7 Security Monitoring</h3>
+            <p>Huntress Security Operations Center watches your endpoints and Microsoft 365 identities around the clock. Threats are isolated automatically — even at 3am.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Endpoint Management</h3>
+            <p>Every workstation and server monitored, patched, and maintained. OS and third-party patches applied automatically on a scheduled cycle.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Microsoft 365 Administration</h3>
+            <p>User provisioning, license management, Teams, SharePoint, and security baseline hardening. Your M365 tenant working the way it should.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Backup &amp; Recovery</h3>
+            <p>Daily encrypted server backups and full Microsoft 365 backup (email, OneDrive, Teams). Monthly restore tests so you know it works before you need it.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Firewall Management</h3>
+            <p>FortiGate firewall configuration, firmware updates, VPN management, and security policy review. Your perimeter locked down and current.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Help Desk Support</h3>
+            <p>Evening and Saturday live support for your team. Tickets answered by a real engineer — not a script reader. Daytime calls answered and triaged immediately.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Included -->
+      <div class="included">
+        <div class="section-title">Everything Included in Your Monthly Rate</div>
+        <div class="included-list">
+          <div class="included-item">Patch management (OS + third-party)</div>
+          <div class="included-item">Huntress MDR + ITDR (24/7 SOC)</div>
+          <div class="included-item">Microsoft Defender for Business</div>
+          <div class="included-item">Cove encrypted server backup</div>
+          <div class="included-item">Microsoft 365 backup</div>
+          <div class="included-item">New user onboarding (2/month)</div>
+          <div class="included-item">User offboarding (2/month)</div>
+          <div class="included-item">Quarterly business review</div>
+          <div class="included-item">Help desk (evenings + Saturdays)</div>
+          <div class="included-item">Multi-factor authentication mgmt</div>
+          <div class="included-item">Conditional Access policy mgmt</div>
+          <div class="included-item">Monthly backup restore testing</div>
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="how">
+        <div class="section-title">How It Works</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>30-minute discovery call.</strong> We learn your setup, your pain points, and what you need. No obligation, no pitch.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Written proposal within 48 hours.</strong> Flat monthly rate, clear scope, month-to-month contract. No lock-in.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>30-day onboarding.</strong> We document your environment, deploy monitoring and security tools, harden your Microsoft 365, and verify your backups actually work.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text"><strong>Ongoing managed services.</strong> Monthly invoicing, quarterly business reviews, and an IT environment that runs quietly in the background.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /col-left -->
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-right">
+
+      <!-- Pricing -->
+      <div class="pricing-card">
+        <div class="section-title">Simple Pricing</div>
+
+        <div class="price-highlight">
+          <div class="big">$140</div>
+          <div class="small">per user / per month</div>
+        </div>
+
+        <div class="price-row">
+          <span class="price-label">Managed server</span>
+          <span class="price-value">+$175/mo</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Managed firewall</span>
+          <span class="price-value">+$75/mo</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Server backup storage</span>
+          <span class="price-value">at cost</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Onboarding fee</span>
+          <span class="price-value">$150/user</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Contract term</span>
+          <span class="price-value">Month-to-month</span>
+        </div>
+        <div class="price-note">
+          After-hours emergency response, on-site visits, and project work billed at T&amp;M rates. Ask for a full rate sheet.
+        </div>
+      </div>
+
+      <!-- Why us -->
+      <div class="why-card">
+        <div class="section-title">Why Quiet Tech</div>
+        <div class="why-item">
+          <span class="why-icon">⚡</span>
+          <span><strong>Senior-level engineering</strong> Founded by a network engineer with enterprise infrastructure experience. Not a help desk generalist.</span>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">🔒</span>
+          <span><strong>24/7 threat response</strong> Huntress SOC monitors and isolates threats around the clock — not just during business hours.</span>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">📋</span>
+          <span><strong>No lock-in</strong> Month-to-month contracts. 30 days notice either way. We earn your business every month.</span>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">🎯</span>
+          <span><strong>Small roster, big attention</strong> We intentionally limit our client count so you always reach a real person who knows your environment.</span>
+        </div>
+      </div>
+
+      <!-- Security badge -->
+      <div class="security-badge">
+        <strong>Cyber Insurance Ready</strong>
+        <p>Our security stack — MFA, 24/7 SOC monitoring, encrypted backups, and endpoint protection — satisfies the requirements most cyber insurance carriers ask for.</p>
+      </div>
+
+    </div><!-- /col-right -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-tagline">
+      <span>Quiet Tech Solutions, LLC</span> &nbsp;·&nbsp; IT that runs quietly in the background.
+    </div>
+    <div class="footer-links">
+      <a href="mailto:noah@quiettechsolutions.com">noah@quiettechsolutions.com</a>
+      <a href="https://quiettechsolutions.com">quiettechsolutions.com</a>
+      <span>Lancaster, PA</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
