@@ -3,662 +3,676 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiet Tech Solutions — Managed IT Services</title>
+<title>Quiet Tech Solutions — Managed IT for Lancaster Small Businesses</title>
+<meta name="description" content="Quiet Tech Solutions is a Lancaster, PA managed IT provider for small businesses. 24/7 security monitoring, Microsoft 365 management, backups, and help desk — one flat monthly rate, month-to-month.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@300;400;600;700&display=swap');
+/* ─────────────────────────────────────────────
+   QUIET TECH SOLUTIONS
+   Palette: Navy ink / Signal blue / Sky / Ice / Paper
+   Type:    Sora (display) · Hanken Grotesk (body) · JetBrains Mono (labels)
+   Signature: volume bars that settle to quiet
+   ───────────────────────────────────────────── */
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:   #1F3864;
+  --navy-2: #16294A;
+  --blue:   #2E75B6;
+  --sky:    #7DB8E0;
+  --ice:    #E8F3FB;
+  --paper:  #FAFCFE;
+  --slate:  #46556A;
+  --hair:   #D6E4F0;
+  --radius: 14px;
+}
 
-  :root {
-    --navy:    #1F3864;
-    --blue:    #2E75B6;
-    --sky:     #7DB8E0;
-    --ice:     #E8F3FB;
-    --white:   #FFFFFF;
-    --slate:   #4A5568;
-    --mist:    #F4F7FA;
-    --border:  #D1E3F0;
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html, body {
-    width: 100%; height: 100%;
-    font-family: 'Barlow', sans-serif;
-    background: var(--mist);
-    color: var(--navy);
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+html { scroll-behavior: smooth; }
 
-  /* ── PAGE SHELL ── */
-  .page {
-    width: 8.5in;
-    min-height: 11in;
-    margin: 0 auto;
-    background: var(--white);
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 40px rgba(31,56,100,0.12);
-  }
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 400;
+  color: var(--slate);
+  background: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ── DECORATIVE BG BARS (top-right corner) ── */
-  .page::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 220px; height: 220px;
-    background:
-      linear-gradient(135deg, var(--ice) 0%, transparent 60%);
-    border-radius: 50%;
-    z-index: 0;
-    opacity: 0.6;
-  }
+h1, h2, h3 { font-family: 'Sora', sans-serif; color: var(--navy); line-height: 1.15; }
 
-  /* ── HEADER ── */
-  header {
-    position: relative;
-    z-index: 1;
-    background: var(--navy);
-    padding: 32px 48px 28px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 24px;
-  }
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
 
-  /* Logo: bar wordmark */
-  .logo-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
 
-  .bar-word {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-  }
+section { padding: 96px 0; }
 
-  /* Each letter is an SVG column of bars */
-  .bar-word svg {
-    overflow: visible;
-  }
+a { color: var(--blue); }
 
-  .logo-sub {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 3.5px;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    padding-left: 2px;
-  }
+::selection { background: var(--sky); color: var(--navy); }
 
-  /* Header contact block */
-  .header-contact {
-    text-align: right;
-    color: rgba(255,255,255,0.7);
-    font-size: 11px;
-    line-height: 1.8;
-    font-weight: 300;
-  }
-  .header-contact strong {
-    display: block;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 2px;
-  }
-  .header-contact a { color: var(--sky); text-decoration: none; }
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250,252,254,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hair);
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 14px 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-name {
+  font-family: 'Sora', sans-serif; font-weight: 700;
+  font-size: 15px; letter-spacing: 2px; color: var(--navy);
+}
+.brand-name span { font-weight: 400; color: var(--blue); }
+.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--slate);
+  text-decoration: none; transition: color .15s;
+}
+.nav-links a:hover { color: var(--navy); }
+.btn {
+  display: inline-block;
+  font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px;
+  padding: 11px 22px; border-radius: 10px;
+  text-decoration: none; transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.btn-primary { background: var(--navy); color: #fff; box-shadow: 0 2px 12px rgba(31,56,100,.25); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(31,56,100,.3); }
+.btn-ghost { color: var(--navy); border: 1.5px solid var(--hair); background: #fff; }
+.btn-ghost:hover { border-color: var(--sky); }
 
-  /* ── HERO BAND ── */
-  .hero {
-    background: var(--blue);
-    padding: 18px 48px;
-    position: relative;
-    z-index: 1;
-  }
-  .hero-inner {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-  }
-  .hero h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 0.5px;
-    line-height: 1;
-  }
-  .hero p {
-    font-size: 13px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.8);
-    font-style: italic;
-  }
+/* ── HERO ── */
+.hero { padding: 120px 0 90px; position: relative; overflow: hidden; }
+.hero-grid {
+  display: grid; grid-template-columns: 1.1fr .9fr;
+  gap: 56px; align-items: center;
+}
+.hero h1 {
+  font-size: clamp(38px, 5.2vw, 58px);
+  font-weight: 700; letter-spacing: -1px;
+  margin: 18px 0 22px;
+}
+.hero h1 em { font-style: normal; color: var(--blue); }
+.hero p.lede { font-size: 19px; font-weight: 300; max-width: 480px; margin-bottom: 34px; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  /* ── MAIN BODY ── */
-  main {
-    position: relative;
-    z-index: 1;
-    padding: 32px 48px 24px;
-    display: grid;
-    grid-template-columns: 1fr 220px;
-    gap: 32px;
-  }
+/* the signature: volume bars that settle */
+.quiet-viz {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 44px 36px 32px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(31,56,100,.28);
+}
+.quiet-viz::before {
+  /* chamfer corner accents */
+  content: '';
+  position: absolute; inset: 10px;
+  border: 1px solid rgba(125,184,224,.18);
+  border-radius: 14px;
+  pointer-events: none;
+}
+.bars { display: flex; align-items: flex-end; gap: 7px; height: 130px; justify-content: center; }
+.bars span {
+  width: 12px; border-radius: 4px;
+  background: #fff;
+  animation: settle 7s ease-in-out infinite;
+  transform-origin: bottom;
+}
+.bars span:nth-child(2n)  { background: var(--sky); }
+.bars span:nth-child(1)  { height: 78%; animation-delay: -.2s; }
+.bars span:nth-child(2)  { height: 56%; animation-delay: -.9s; }
+.bars span:nth-child(3)  { height: 90%; animation-delay: -1.7s; }
+.bars span:nth-child(4)  { height: 42%; animation-delay: -.5s; }
+.bars span:nth-child(5)  { height: 68%; animation-delay: -2.3s; }
+.bars span:nth-child(6)  { height: 30%; animation-delay: -1.2s; }
+.bars span:nth-child(7)  { height: 84%; animation-delay: -2.9s; }
+.bars span:nth-child(8)  { height: 48%; animation-delay: -.7s; }
+.bars span:nth-child(9)  { height: 64%; animation-delay: -1.9s; }
+.bars span:nth-child(10) { height: 36%; animation-delay: -2.6s; }
+.bars span:nth-child(11) { height: 22%; animation-delay: -1.4s; }
+.bars span:nth-child(12) { height: 14%; animation-delay: -3.2s; }
 
-  /* ── LEFT COLUMN ── */
-  .col-left { display: flex; flex-direction: column; gap: 24px; }
+@keyframes settle {
+  0%   { transform: scaleY(1); }
+  45%  { transform: scaleY(.18); }
+  60%  { transform: scaleY(.22); }
+  75%  { transform: scaleY(.15); }
+  100% { transform: scaleY(1); }
+}
 
-  /* Section titles */
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 10px;
-    padding-bottom: 6px;
-    border-bottom: 1.5px solid var(--border);
-  }
+.viz-slider { margin-top: 28px; position: relative; height: 18px; }
+.viz-slider .track {
+  position: absolute; left: 0; right: 0; top: 8px; height: 2px;
+  background: rgba(255,255,255,.16); border-radius: 1px;
+}
+.viz-slider .fill {
+  position: absolute; left: 0; top: 8px; height: 2px; width: 26%;
+  background: var(--sky); border-radius: 1px;
+}
+.viz-slider .thumb {
+  position: absolute; left: 26%; top: 2px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--sky); border: 3px solid var(--navy);
+  box-shadow: 0 0 0 2px var(--sky);
+}
+.viz-caption {
+  margin-top: 18px; text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 2px;
+  color: rgba(255,255,255,.45); text-transform: uppercase;
+}
 
-  /* Intro text */
-  .intro p {
-    font-size: 12.5px;
-    font-weight: 300;
-    color: var(--slate);
-    line-height: 1.7;
-  }
-  .intro p strong {
-    color: var(--navy);
-    font-weight: 600;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .bars span { animation: none; transform: scaleY(.2); }
+  html { scroll-behavior: auto; }
+}
 
-  /* Services grid */
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
+/* ── TRUST STRIP ── */
+.trust {
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+  background: #fff;
+  padding: 26px 0;
+}
+.trust-row {
+  display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 500; color: var(--navy); }
+.trust-item .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
 
-  .service-card {
-    background: var(--mist);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 12px 14px;
-    border-left: 3px solid var(--blue);
-  }
-  .service-card h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.3px;
-    margin-bottom: 4px;
-  }
-  .service-card p {
-    font-size: 11px;
-    font-weight: 300;
-    color: var(--slate);
-    line-height: 1.55;
-  }
+/* ── SECTION HEADERS ── */
+.sec-head { max-width: 560px; margin-bottom: 52px; }
+.sec-head h2 { font-size: clamp(28px, 3.6vw, 38px); font-weight: 700; margin: 14px 0 16px; letter-spacing: -.5px; }
+.sec-head p { font-size: 16.5px; font-weight: 300; }
 
-  /* What's included list */
-  .included-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px 16px;
-  }
-  .included-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-    font-size: 11.5px;
-    font-weight: 400;
-    color: var(--slate);
-    line-height: 1.4;
-  }
-  .included-item::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    min-width: 5px;
-    background: var(--blue);
-    border-radius: 50%;
-    margin-top: 5px;
-  }
+/* volume-slider section divider */
+.divider { display: flex; align-items: center; gap: 4px; height: 22px; margin: 0 auto; width: fit-content; }
+.divider i { display: block; width: 4px; border-radius: 2px; background: var(--sky); }
+.divider i:nth-child(1) { height: 5px;  opacity: .35; }
+.divider i:nth-child(2) { height: 9px;  opacity: .55; }
+.divider i:nth-child(3) { height: 15px; opacity: .8; }
+.divider i:nth-child(4) { height: 21px; }
+.divider i:nth-child(5) { height: 15px; opacity: .8; }
+.divider i:nth-child(6) { height: 9px;  opacity: .5; }
+.divider i:nth-child(7) { height: 5px;  opacity: .3; }
 
-  /* How it works */
-  .steps { display: flex; flex-direction: column; gap: 8px; }
-  .step {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .step-num {
-    width: 22px;
-    height: 22px;
-    min-width: 22px;
-    background: var(--navy);
-    color: white;
-    border-radius: 50%;
-    font-size: 10px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0;
-    margin-top: 1px;
-  }
-  .step-text {
-    font-size: 11.5px;
-    color: var(--slate);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-  .step-text strong { color: var(--navy); font-weight: 600; }
+/* ── SERVICES ── */
+#services { background: var(--ice); }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.svc {
+  background: #fff; border: 1px solid var(--hair);
+  border-radius: var(--radius); padding: 26px 24px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.svc:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(31,56,100,.1); }
+.svc .svc-bars { display: flex; align-items: flex-end; gap: 3px; height: 22px; margin-bottom: 16px; }
+.svc .svc-bars i { display: block; width: 5px; border-radius: 2px; background: var(--blue); }
+.svc h3 { font-size: 16.5px; font-weight: 600; margin-bottom: 8px; }
+.svc p { font-size: 14px; font-weight: 300; line-height: 1.6; }
 
-  /* ── RIGHT COLUMN ── */
-  .col-right { display: flex; flex-direction: column; gap: 20px; }
+/* ── STORY ── */
+.story-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
+.story-mark {
+  background: var(--navy); border-radius: 20px;
+  aspect-ratio: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 22px;
+  box-shadow: 0 24px 60px rgba(31,56,100,.22);
+  position: relative;
+}
+.story-mark::before {
+  content: ''; position: absolute; inset: 12px;
+  border: 1px solid rgba(125,184,224,.16); border-radius: 14px;
+}
+.qmark { display: flex; align-items: flex-end; gap: 8px; height: 110px; }
+.qmark i { display: block; width: 16px; border-radius: 5px; background: #fff; }
+.qmark i:nth-child(1) { height: 100%; }
+.qmark i:nth-child(2) { height: 72%; }
+.qmark i:nth-child(3) { height: 16%; }
+.qmark i:nth-child(4) { height: 72%; }
+.qmark i:nth-child(5) { height: 100%; }
+.qmark .tail {
+  width: 16px; height: 30px; background: var(--sky);
+  border-radius: 5px; transform: rotate(42deg) translate(-6px, 6px);
+}
+.story-mark .mono { color: rgba(255,255,255,.5); }
+.story-copy h2 { font-size: clamp(28px, 3.6vw, 36px); margin: 14px 0 20px; letter-spacing: -.5px; }
+.story-copy p { font-size: 16px; font-weight: 300; margin-bottom: 16px; }
+.story-copy strong { color: var(--navy); font-weight: 600; }
 
-  /* Pricing card */
-  .pricing-card {
-    background: var(--navy);
-    border-radius: 8px;
-    padding: 20px 18px;
-    color: white;
-  }
-  .pricing-card .section-title {
-    color: var(--sky);
-    border-color: rgba(125,184,224,0.3);
-    margin-bottom: 14px;
-  }
-  .price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    font-size: 11px;
-  }
-  .price-row:last-child { border-bottom: none; }
-  .price-label { color: rgba(255,255,255,0.7); font-weight: 300; }
-  .price-value {
-    color: white;
-    font-weight: 600;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    text-align: right;
-  }
-  .price-note {
-    font-size: 9.5px;
-    color: rgba(255,255,255,0.4);
-    margin-top: 10px;
-    line-height: 1.5;
-    font-weight: 300;
-    font-style: italic;
-  }
+/* ── PRICING ── */
+#pricing { background: var(--navy); }
+#pricing .sec-head h2, #pricing .sec-head { color: #fff; }
+#pricing .sec-head p { color: rgba(255,255,255,.65); }
+#pricing .mono { color: var(--sky); }
+.price-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 22px; align-items: stretch; }
+.price-main {
+  background: #fff; border-radius: 18px; padding: 38px 36px;
+  display: flex; flex-direction: column;
+}
+.price-figure { display: flex; align-items: baseline; gap: 10px; margin: 10px 0 6px; }
+.price-figure .amt { font-family: 'Sora', sans-serif; font-size: 56px; font-weight: 700; color: var(--navy); letter-spacing: -2px; }
+.price-figure .per { font-size: 15px; color: var(--slate); font-weight: 300; }
+.price-main > p.note { font-size: 14px; font-weight: 300; margin-bottom: 22px; }
+.inc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; margin-top: auto; }
+.inc-list li {
+  font-size: 13.5px; font-weight: 400; color: var(--slate);
+  padding-left: 18px; position: relative; line-height: 1.5;
+}
+.inc-list li::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 7px; height: 7px; border-radius: 2px; background: var(--blue);
+}
+.price-side { display: flex; flex-direction: column; gap: 14px; }
+.addon {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px; padding: 18px 22px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.addon .lbl { font-size: 14px; color: rgba(255,255,255,.75); font-weight: 300; }
+.addon .val { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; color: #fff; }
+.price-foot {
+  margin-top: 8px; font-size: 12.5px; line-height: 1.6;
+  color: rgba(255,255,255,.45); font-weight: 300;
+}
 
-  /* Highlight band inside pricing */
-  .price-highlight {
-    background: rgba(46,117,182,0.35);
-    border-radius: 5px;
-    padding: 8px 10px;
-    margin: 10px 0;
-    text-align: center;
-  }
-  .price-highlight .big {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: white;
-    line-height: 1;
-  }
-  .price-highlight .small {
-    font-size: 10px;
-    color: rgba(255,255,255,0.6);
-    font-weight: 300;
-    margin-top: 2px;
-  }
+/* ── HOURS / HOW WE COVER YOU ── */
+.cover-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cover {
+  border: 1px solid var(--hair); border-radius: var(--radius);
+  padding: 26px 24px; background: #fff;
+}
+.cover .mono { display: block; margin-bottom: 12px; }
+.cover h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.cover p { font-size: 14px; font-weight: 300; }
+.cover.always { background: var(--ice); border-color: var(--sky); }
 
-  /* Why us */
-  .why-card {
-    background: var(--ice);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 18px;
-  }
-  .why-card .section-title { margin-bottom: 12px; }
-  .why-item {
-    display: flex;
-    gap: 9px;
-    margin-bottom: 9px;
-    font-size: 11px;
-    color: var(--slate);
-    line-height: 1.45;
-    font-weight: 300;
-  }
-  .why-item:last-child { margin-bottom: 0; }
-  .why-icon {
-    font-size: 13px;
-    min-width: 16px;
-    margin-top: 0px;
-  }
-  .why-item strong { color: var(--navy); font-weight: 600; display: block; }
+/* ── STEPS ── */
+#how { background: #fff; border-top: 1px solid var(--hair); }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.step-card { position: relative; padding: 26px 22px 24px; border: 1px solid var(--hair); border-radius: var(--radius); }
+.step-card .n {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+  color: var(--blue); letter-spacing: 1px; display: block; margin-bottom: 14px;
+}
+.step-card h3 { font-size: 15.5px; font-weight: 600; margin-bottom: 8px; }
+.step-card p { font-size: 13.5px; font-weight: 300; line-height: 1.6; }
 
-  /* Security badge */
-  .security-badge {
-    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
-    border-radius: 8px;
-    padding: 14px 18px;
-    text-align: center;
-  }
-  .security-badge p {
-    font-size: 10.5px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-  .security-badge strong {
-    display: block;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 0.5px;
-    margin-bottom: 5px;
-  }
+/* ── FAQ ── */
+#faq { background: var(--ice); }
+.faq-list { max-width: 760px; }
+details {
+  background: #fff; border: 1px solid var(--hair);
+  border-radius: 12px; margin-bottom: 12px; overflow: hidden;
+}
+summary {
+  cursor: pointer; padding: 20px 24px;
+  font-family: 'Sora', sans-serif; font-size: 15.5px; font-weight: 600; color: var(--navy);
+  list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-size: 20px; color: var(--blue); font-weight: 400; transition: transform .2s; }
+details[open] summary::after { transform: rotate(45deg); }
+details .a { padding: 0 24px 22px; font-size: 14.5px; font-weight: 300; line-height: 1.7; }
 
-  /* ── FOOTER ── */
-  footer {
-    position: relative;
-    z-index: 1;
-    background: var(--navy);
-    padding: 14px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer-tagline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 300;
-    font-style: italic;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.5px;
-  }
-  .footer-tagline span { color: var(--sky); font-weight: 600; font-style: normal; }
-  .footer-links {
-    display: flex;
-    gap: 20px;
-    font-size: 10.5px;
-    color: rgba(255,255,255,0.5);
-    font-weight: 300;
-  }
-  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; }
+/* ── CTA ── */
+#contact { background: var(--navy); text-align: center; }
+#contact h2 { color: #fff; font-size: clamp(28px, 4vw, 42px); margin: 16px 0 18px; letter-spacing: -.5px; }
+#contact p { color: rgba(255,255,255,.65); font-size: 17px; font-weight: 300; max-width: 520px; margin: 0 auto 36px; }
+#contact .mono { color: var(--sky); }
+.cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-light { background: #fff; color: var(--navy); }
+.btn-light:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.btn-outline { border: 1.5px solid rgba(255,255,255,.3); color: #fff; }
+.btn-outline:hover { border-color: var(--sky); }
+.contact-line { margin-top: 36px; font-size: 14px; color: rgba(255,255,255,.5); font-weight: 300; }
+.contact-line a { color: var(--sky); text-decoration: none; }
 
-  /* ── PRINT ── */
-  @media print {
-    body { background: white; }
-    .page {
-      width: 100%; min-height: 100vh;
-      box-shadow: none; margin: 0;
-    }
-    @page { margin: 0; size: letter; }
-  }
+/* ── FOOTER ── */
+footer { background: var(--navy-2); padding: 30px 0; }
+.foot-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 18px; flex-wrap: wrap;
+}
+.foot-brand { font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85); letter-spacing: 1.5px; }
+.foot-brand span { color: var(--sky); font-weight: 400; }
+.foot-meta { font-size: 12px; color: rgba(255,255,255,.35); font-weight: 300; }
+.foot-meta a { color: rgba(255,255,255,.55); text-decoration: none; }
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 920px) {
+  .hero-grid, .story-grid, .price-grid { grid-template-columns: 1fr; }
+  .svc-grid, .cover-grid { grid-template-columns: 1fr 1fr; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links a:not(.btn) { display: none; }
+  .story-mark { max-width: 340px; margin: 0 auto; }
+  section { padding: 72px 0; }
+  .hero { padding: 72px 0 60px; }
+}
+@media (max-width: 560px) {
+  .svc-grid, .cover-grid, .steps-grid, .inc-list { grid-template-columns: 1fr; }
+  .trust-row { flex-direction: column; gap: 10px; }
+}
 </style>
 </head>
 <body>
-<div class="page">
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo-wrap">
-      <div class="bar-word">
-        <!-- QUIET spelled in volume bars — white on navy -->
-        <svg width="186" height="44" viewBox="0 0 186 44">
-          <!-- Q: tall-mid-low-mid-tall + tail -->
-          <rect x="0"  y="6"  width="6" height="36" rx="2" fill="white"/>
-          <rect x="8"  y="14" width="6" height="28" rx="2" fill="white"/>
-          <rect x="16" y="28" width="6" height="14" rx="2" fill="white"/>
-          <rect x="24" y="20" width="6" height="22" rx="2" fill="white"/>
-          <rect x="32" y="6"  width="6" height="36" rx="2" fill="white"/>
-          <rect x="35" y="36" width="7" height="10" rx="2" fill="#7DB8E0" transform="rotate(35,38,41)"/>
-          <!-- U -->
-          <rect x="48" y="6"  width="6" height="36" rx="2" fill="white"/>
-          <rect x="56" y="14" width="6" height="28" rx="2" fill="white"/>
-          <rect x="64" y="28" width="6" height="14" rx="2" fill="white"/>
-          <rect x="72" y="28" width="6" height="14" rx="2" fill="white"/>
-          <rect x="80" y="14" width="6" height="28" rx="2" fill="white"/>
-          <rect x="88" y="6"  width="6" height="36" rx="2" fill="white"/>
-          <!-- I -->
-          <rect x="102" y="32" width="6" height="10" rx="2" fill="white"/>
-          <rect x="110" y="32" width="6" height="10" rx="2" fill="white"/>
-          <rect x="118" y="6"  width="6" height="36" rx="2" fill="white"/>
-          <rect x="126" y="32" width="6" height="10" rx="2" fill="white"/>
-          <rect x="134" y="32" width="6" height="10" rx="2" fill="white"/>
-          <!-- E: left-heavy descending -->
-          <rect x="148" y="6"  width="6" height="36" rx="2" fill="white"/>
-          <rect x="156" y="14" width="6" height="28" rx="2" fill="white"/>
-          <rect x="164" y="20" width="6" height="22" rx="2" fill="#7DB8E0"/>
-          <rect x="172" y="28" width="6" height="14" rx="2" fill="#7DB8E0" opacity="0.5"/>
-          <rect x="180" y="34" width="6" height="8"  rx="2" fill="#7DB8E0" opacity="0.22"/>
-        </svg>
-
-        <!-- T as a separate SVG to avoid overlap -->
-        <svg width="62" height="44" viewBox="0 0 62 44">
-          <!-- T: peak centre -->
-          <rect x="0"  y="34" width="6" height="8"  rx="2" fill="white" opacity="0.2"/>
-          <rect x="8"  y="28" width="6" height="14" rx="2" fill="white" opacity="0.45"/>
-          <rect x="16" y="20" width="6" height="22" rx="2" fill="white"/>
-          <rect x="24" y="6"  width="6" height="36" rx="2" fill="white"/>
-          <rect x="32" y="20" width="6" height="22" rx="2" fill="white"/>
-          <rect x="40" y="28" width="6" height="14" rx="2" fill="white" opacity="0.45"/>
-          <rect x="48" y="34" width="6" height="8"  rx="2" fill="white" opacity="0.2"/>
-        </svg>
-      </div>
-      <div class="logo-sub">Tech Solutions &nbsp;·&nbsp; Managed IT &nbsp;·&nbsp; Lancaster, PA</div>
-    </div>
-
-    <div class="header-contact">
-      <strong>Noah Kwiat</strong>
-      Founder &amp; Lead Engineer<br>
-      noah@quiettechsolutions.com<br>
-      <a href="https://quiettechsolutions.com">quiettechsolutions.com</a>
-    </div>
-  </header>
-
-  <!-- HERO BAND -->
-  <div class="hero">
-    <div class="hero-inner">
-      <h1>Managed IT that stays out of your way.</h1>
-      <p>One flat monthly rate. No surprises. No downtime.</p>
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Quiet Tech Solutions home">
+      <!-- Q bar mark, chamfered badge -->
+      <svg width="38" height="38" viewBox="0 0 44 44" aria-hidden="true">
+        <polygon points="7,0 37,0 44,7 44,37 37,44 7,44 0,37 0,7" fill="#1F3864"/>
+        <rect x="5"  y="11" width="5.5" height="23" rx="1.5" fill="#fff"/>
+        <rect x="12.5" y="17" width="5.5" height="17" rx="1.5" fill="#fff"/>
+        <rect x="20" y="30" width="5.5" height="4"  rx="1.5" fill="#fff"/>
+        <rect x="27.5" y="17" width="5.5" height="17" rx="1.5" fill="#fff"/>
+        <rect x="35" y="11" width="5.5" height="23" rx="1.5" fill="#fff"/>
+        <rect x="36" y="30" width="5.5" height="8" rx="1.5" fill="#7DB8E0" transform="rotate(42 38 34)"/>
+      </svg>
+      <span class="brand-name">QUIET <span>TECH SOLUTIONS</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#story">About</a>
+      <a href="#faq">FAQ</a>
+      <!-- Replace href with your Calendly link when live -->
+      <a class="btn btn-primary" href="https://calendly.com/noah-quiettechsolutions/30min">Book a call</a>
     </div>
   </div>
+</nav>
 
-  <!-- MAIN -->
-  <main>
-    <!-- LEFT COLUMN -->
-    <div class="col-left">
-
-      <!-- Intro -->
-      <div class="intro">
-        <div class="section-title">Who We Are</div>
-        <p>
-          Quiet Tech Solutions is a Lancaster-based managed IT provider built for small businesses
-          who need <strong>real expertise without the big-MSP price tag.</strong> Founded by a
-          network engineer, we manage your technology so you can focus on running your business —
-          not troubleshooting it. We take on a small number of clients intentionally,
-          so every client gets direct access to senior-level talent, every time.
-        </p>
+<!-- ══════════ HERO ══════════ -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="mono">Managed IT · Lancaster, PA</span>
+      <h1>IT that stays <em>out of your way.</em></h1>
+      <p class="lede">Quiet Tech Solutions keeps small businesses running — monitored, patched, backed up, and secured around the clock — for one flat monthly rate. No surprises. No lock&#8209;in. No noise.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://calendly.com/noah-quiettechsolutions/30min">Book a free discovery call</a>
+        <a class="btn btn-ghost" href="#pricing">See pricing</a>
       </div>
-
-      <!-- Services -->
-      <div class="services">
-        <div class="section-title">What We Manage</div>
-        <div class="services-grid">
-
-          <div class="service-card">
-            <h3>24/7 Security Monitoring</h3>
-            <p>Huntress Security Operations Center watches your endpoints and Microsoft 365 identities around the clock. Threats are isolated automatically — even at 3am.</p>
-          </div>
-
-          <div class="service-card">
-            <h3>Endpoint Management</h3>
-            <p>Every workstation and server monitored, patched, and maintained. OS and third-party patches applied automatically on a scheduled cycle.</p>
-          </div>
-
-          <div class="service-card">
-            <h3>Microsoft 365 Administration</h3>
-            <p>User provisioning, license management, Teams, SharePoint, and security baseline hardening. Your M365 tenant working the way it should.</p>
-          </div>
-
-          <div class="service-card">
-            <h3>Backup &amp; Recovery</h3>
-            <p>Daily encrypted server backups and full Microsoft 365 backup (email, OneDrive, Teams). Monthly restore tests so you know it works before you need it.</p>
-          </div>
-
-          <div class="service-card">
-            <h3>Firewall Management</h3>
-            <p>FortiGate firewall configuration, firmware updates, VPN management, and security policy review. Your perimeter locked down and current.</p>
-          </div>
-
-          <div class="service-card">
-            <h3>Help Desk Support</h3>
-            <p>Evening and Saturday live support for your team. Tickets answered by a real engineer — not a script reader. Daytime calls answered and triaged immediately.</p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Included -->
-      <div class="included">
-        <div class="section-title">Everything Included in Your Monthly Rate</div>
-        <div class="included-list">
-          <div class="included-item">Patch management (OS + third-party)</div>
-          <div class="included-item">Huntress MDR + ITDR (24/7 SOC)</div>
-          <div class="included-item">Microsoft Defender for Business</div>
-          <div class="included-item">Cove encrypted server backup</div>
-          <div class="included-item">Microsoft 365 backup</div>
-          <div class="included-item">New user onboarding (2/month)</div>
-          <div class="included-item">User offboarding (2/month)</div>
-          <div class="included-item">Quarterly business review</div>
-          <div class="included-item">Help desk (evenings + Saturdays)</div>
-          <div class="included-item">Multi-factor authentication mgmt</div>
-          <div class="included-item">Conditional Access policy mgmt</div>
-          <div class="included-item">Monthly backup restore testing</div>
-        </div>
-      </div>
-
-      <!-- How it works -->
-      <div class="how">
-        <div class="section-title">How It Works</div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-text"><strong>30-minute discovery call.</strong> We learn your setup, your pain points, and what you need. No obligation, no pitch.</div>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-text"><strong>Written proposal within 48 hours.</strong> Flat monthly rate, clear scope, month-to-month contract. No lock-in.</div>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-text"><strong>30-day onboarding.</strong> We document your environment, deploy monitoring and security tools, harden your Microsoft 365, and verify your backups actually work.</div>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <div class="step-text"><strong>Ongoing managed services.</strong> Monthly invoicing, quarterly business reviews, and an IT environment that runs quietly in the background.</div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /col-left -->
-
-    <!-- RIGHT COLUMN -->
-    <div class="col-right">
-
-      <!-- Pricing -->
-      <div class="pricing-card">
-        <div class="section-title">Simple Pricing</div>
-
-        <div class="price-highlight">
-          <div class="big">$140</div>
-          <div class="small">per user / per month</div>
-        </div>
-
-        <div class="price-row">
-          <span class="price-label">Managed server</span>
-          <span class="price-value">+$175/mo</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Managed firewall</span>
-          <span class="price-value">+$75/mo</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Server backup storage</span>
-          <span class="price-value">at cost</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Onboarding fee</span>
-          <span class="price-value">$150/user</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Contract term</span>
-          <span class="price-value">Month-to-month</span>
-        </div>
-        <div class="price-note">
-          After-hours emergency response, on-site visits, and project work billed at T&amp;M rates. Ask for a full rate sheet.
-        </div>
-      </div>
-
-      <!-- Why us -->
-      <div class="why-card">
-        <div class="section-title">Why Quiet Tech</div>
-        <div class="why-item">
-          <span class="why-icon">⚡</span>
-          <span><strong>Senior-level engineering</strong> Founded by a network engineer with enterprise infrastructure experience. Not a help desk generalist.</span>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🔒</span>
-          <span><strong>24/7 threat response</strong> Huntress SOC monitors and isolates threats around the clock — not just during business hours.</span>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">📋</span>
-          <span><strong>No lock-in</strong> Month-to-month contracts. 30 days notice either way. We earn your business every month.</span>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🎯</span>
-          <span><strong>Small roster, big attention</strong> We intentionally limit our client count so you always reach a real person who knows your environment.</span>
-        </div>
-      </div>
-
-      <!-- Security badge -->
-      <div class="security-badge">
-        <strong>Cyber Insurance Ready</strong>
-        <p>Our security stack — MFA, 24/7 SOC monitoring, encrypted backups, and endpoint protection — satisfies the requirements most cyber insurance carriers ask for.</p>
-      </div>
-
-    </div><!-- /col-right -->
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-tagline">
-      <span>Quiet Tech Solutions, LLC</span> &nbsp;·&nbsp; IT that runs quietly in the background.
     </div>
-    <div class="footer-links">
-      <a href="mailto:noah@quiettechsolutions.com">noah@quiettechsolutions.com</a>
-      <a href="https://quiettechsolutions.com">quiettechsolutions.com</a>
-      <span>Lancaster, PA</span>
+    <div class="quiet-viz" aria-hidden="true">
+      <div class="bars">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="viz-slider">
+        <div class="track"></div><div class="fill"></div><div class="thumb"></div>
+      </div>
+      <div class="viz-caption">your IT · volume: low · running quietly</div>
     </div>
-  </footer>
+  </div>
+</header>
 
+<!-- ══════════ TRUST STRIP ══════════ -->
+<div class="trust">
+  <div class="wrap trust-row">
+    <div class="trust-item"><span class="dot"></span>Founded by a real network engineer</div>
+    <div class="trust-item"><span class="dot"></span>24/7/365 security operations center</div>
+    <div class="trust-item"><span class="dot"></span>Month-to-month — no long contracts</div>
+    <div class="trust-item"><span class="dot"></span>Cyber-insurance-ready security stack</div>
+  </div>
 </div>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">What we manage</span>
+      <h2>Everything your business runs on, handled.</h2>
+      <p>One provider, one monthly rate, every layer covered — from the firewall at your front door to the inbox on your phone.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="svc-bars"><i style="height:100%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:25%;opacity:.5"></i><i style="height:12%;opacity:.25"></i></div>
+        <h3>24/7 Security Monitoring</h3>
+        <p>A staffed Security Operations Center watches every endpoint and Microsoft 365 identity around the clock. Threats are isolated automatically — even at 3am.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-bars"><i style="height:60%"></i><i style="height:100%"></i><i style="height:40%"></i><i style="height:75%;opacity:.7"></i><i style="height:20%;opacity:.3"></i></div>
+        <h3>Endpoint Management</h3>
+        <p>Every workstation and server monitored, patched, and maintained on a scheduled cycle — operating systems and third-party apps alike.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-bars"><i style="height:35%"></i><i style="height:65%"></i><i style="height:100%"></i><i style="height:50%;opacity:.6"></i><i style="height:18%;opacity:.3"></i></div>
+        <h3>Microsoft 365 Administration</h3>
+        <p>User setup, licensing, Teams, SharePoint, and security hardening. Your Microsoft 365 tenant configured the way Microsoft intends — and kept that way.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-bars"><i style="height:80%"></i><i style="height:30%"></i><i style="height:55%"></i><i style="height:100%;opacity:.8"></i><i style="height:15%;opacity:.25"></i></div>
+        <h3>Backup &amp; Recovery</h3>
+        <p>Daily encrypted server backups plus full Microsoft 365 backup — email, OneDrive, Teams. Tested monthly, because an untested backup isn't a backup.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-bars"><i style="height:45%"></i><i style="height:90%"></i><i style="height:25%"></i><i style="height:60%;opacity:.6"></i><i style="height:100%;opacity:.4"></i></div>
+        <h3>Firewall Management</h3>
+        <p>FortiGate configuration, firmware updates, VPN for remote work, and security policy reviews. Your network perimeter, locked down and current.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-bars"><i style="height:100%"></i><i style="height:55%"></i><i style="height:75%"></i><i style="height:30%;opacity:.5"></i><i style="height:10%;opacity:.25"></i></div>
+        <h3>Help Desk Support</h3>
+        <p>Real answers from a real engineer who knows your environment — not a script reader. Calls answered live during the day; tickets worked every evening and Saturday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ STORY ══════════ -->
+<section id="story">
+  <div class="wrap story-grid">
+    <div class="story-mark reveal" aria-hidden="true">
+      <div class="qmark">
+        <i></i><i></i><i></i><i></i><i></i><span class="tail"></span>
+      </div>
+      <span class="mono">Kwiat · pronounced "quiet"</span>
+    </div>
+    <div class="story-copy reveal">
+      <span class="mono">The name is real</span>
+      <h2>Quiet isn't just the brand. It's my name.</h2>
+      <p>I'm <strong>Noah Kwiat</strong> — and yes, it's pronounced <em>quiet</em>. I'm a network engineer who spent years managing enterprise infrastructure before starting this practice, and I built Quiet Tech Solutions around a simple belief: <strong>the best IT is the IT you never have to think about.</strong></p>
+      <p>Big MSPs treat 10-person businesses like rounding errors — slow responses, rotating technicians, surprise invoices. I do the opposite. I keep my client roster deliberately small so every client gets senior-level engineering and a direct line to someone who actually knows their network.</p>
+      <p>When your technology runs quietly, you get to focus on the work that matters. That's the whole pitch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRICING ══════════ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">Pricing</span>
+      <h2>One rate. Everything included.</h2>
+      <p>Most IT providers make you call for a quote. We'd rather you know exactly what it costs before we ever talk.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-main reveal">
+        <span class="mono">Secure — the only tier we offer</span>
+        <div class="price-figure">
+          <span class="amt">$140</span>
+          <span class="per">per user / per month</span>
+        </div>
+        <p class="note">Every client gets the full security stack. We don't sell a version of this service with the protection turned down.</p>
+        <ul class="inc-list">
+          <li>24/7 SOC monitoring &amp; response</li>
+          <li>Managed detection &amp; response (EDR)</li>
+          <li>Microsoft 365 identity protection</li>
+          <li>OS + third-party patch management</li>
+          <li>Microsoft 365 administration</li>
+          <li>Multi-factor authentication management</li>
+          <li>Workstation backup</li>
+          <li>Help desk support</li>
+          <li>New hire &amp; departure handling</li>
+          <li>Quarterly business reviews</li>
+        </ul>
+      </div>
+      <div class="price-side reveal">
+        <div class="addon"><span class="lbl">Managed server</span><span class="val">+$175/mo</span></div>
+        <div class="addon"><span class="lbl">Managed firewall</span><span class="val">+$75/mo</span></div>
+        <div class="addon"><span class="lbl">Microsoft 365 backup</span><span class="val">+$4/user</span></div>
+        <div class="addon"><span class="lbl">Server backup</span><span class="val">+$50/server</span></div>
+        <div class="addon"><span class="lbl">One-time onboarding</span><span class="val">$150/user</span></div>
+        <div class="addon"><span class="lbl">Contract</span><span class="val">Month-to-month</span></div>
+        <p class="price-foot">30-day notice to cancel, either direction. After-hours emergencies, on-site visits, and projects are billed time &amp; materials — ask for the full rate sheet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COVERAGE ══════════ -->
+<section id="coverage">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">Coverage</span>
+      <h2>Watched all day. Worked every evening.</h2>
+      <p>We're transparent about how coverage works — because honest expectations are the foundation of a good fit.</p>
+    </div>
+    <div class="cover-grid">
+      <div class="cover always reveal">
+        <span class="mono">24 / 7 / 365</span>
+        <h3>Security never sleeps</h3>
+        <p>Automated monitoring, threat detection, and a staffed SOC run continuously. Compromised devices are isolated within minutes — day or night.</p>
+      </div>
+      <div class="cover reveal">
+        <span class="mono">Business hours</span>
+        <h3>Calls answered live</h3>
+        <p>A professional answering service takes every weekday call, logs routine requests, and escalates true emergencies directly to an engineer.</p>
+      </div>
+      <div class="cover reveal">
+        <span class="mono">Evenings + Saturdays</span>
+        <h3>Engineering hours</h3>
+        <p>Tickets are worked weekday evenings and Saturdays — when changes won't interrupt your business day. Emergency response is available 24/7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">Getting started</span>
+      <h2>From first call to fully covered in 30 days.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <span class="n">STEP 1</span>
+        <h3>Discovery call</h3>
+        <p>Thirty minutes. You talk, we listen. We learn your setup and your headaches — no pitch, no obligation.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="n">STEP 2</span>
+        <h3>Written proposal</h3>
+        <p>Within 48 hours: a flat monthly number, exact scope, and a month-to-month agreement. No fine print surprises.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="n">STEP 3</span>
+        <h3>30-day onboarding</h3>
+        <p>We document everything, deploy monitoring and security, harden Microsoft 365, and verify your backups actually restore.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="n">STEP 4</span>
+        <h3>Quiet operations</h3>
+        <p>Your IT runs in the background. You get a quarterly review, a predictable invoice, and your time back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono">Questions</span>
+      <h2>The things people actually ask.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>What happens if something breaks during the day?</summary>
+        <div class="a">Every weekday call is answered live by our answering service. Routine issues are logged and worked the same evening. True emergencies — ransomware, server down, total email outage — are escalated to an engineer immediately. And the most common causes of daytime emergencies (failed backups, unwatched security alerts, missed patches) are exactly what our around-the-clock monitoring is designed to prevent.</div>
+      </details>
+      <details>
+        <summary>What if we already have someone who "does our IT"?</summary>
+        <div class="a">That's common, and sometimes it works fine. The question is what happens at 3am when ransomware hits, or when your one IT person is on vacation, or whether anyone has actually tested your backups. We're happy to do a free assessment — if your current setup is solid, we'll tell you that and you've lost nothing.</div>
+      </details>
+      <details>
+        <summary>Why is there only one service tier?</summary>
+        <div class="a">Because the "cheaper tier" at most IT providers is the one with the security turned down — and that's the tier that gets businesses breached. Every Quiet Tech client gets 24/7 monitored security. We'd rather lose a deal than sign a client we can't actually protect.</div>
+      </details>
+      <details>
+        <summary>What does cyber insurance have to do with this?</summary>
+        <div class="a">Cyber insurance applications now ask whether you have multi-factor authentication, endpoint detection and response, 24/7 monitoring, and tested backups. Answering "no" raises premiums or voids coverage entirely. Our standard stack answers "yes" to all of it — many clients find the insurance savings offset part of our fee.</div>
+      </details>
+      <details>
+        <summary>Are we locked into a contract?</summary>
+        <div class="a">No. Month-to-month, 30 days written notice, either direction. If you leave, you keep everything — your licenses, your hardware, your data, and complete documentation of your environment. We earn the relationship every month or you walk away clean.</div>
+      </details>
+      <details>
+        <summary>What size business is the right fit?</summary>
+        <div class="a">Five to twenty-five employees is our sweet spot — insurance agencies, financial advisors, law offices, professional services, and other Lancaster-area small businesses that depend on their technology but aren't big enough for in-house IT.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section id="contact">
+  <div class="wrap">
+    <span class="mono">Get started</span>
+    <h2>Let's make your IT boring.</h2>
+    <p>A 30-minute conversation about your setup, your risks, and whether we're the right fit. No pitch deck, no pressure.</p>
+    <div class="cta-row">
+      <!-- Swap mailto for your Calendly link when ready -->
+      <a class="btn btn-light" href="https://calendly.com/noah-quiettechsolutions/30min">Book a discovery call</a>
+      <a class="btn btn-outline" href="mailto:noah@quiettechsolutions.com">Email Noah directly</a>
+    </div>
+    <div class="contact-line">
+      <a href="mailto:noah@quiettechsolutions.com">noah@quiettechsolutions.com</a> &nbsp;·&nbsp; <a href="tel:+17178751437">(717) 875-1437</a> &nbsp;·&nbsp; Lancaster, Pennsylvania
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand">QUIET <span>TECH SOLUTIONS, LLC</span></div>
+    <div class="foot-meta">
+      © 2026 Quiet Tech Solutions, LLC · Lancaster, PA · <a href="tel:+17178751437">(717) 875-1437</a> ·
+      <a href="mailto:support@quiettechsolutions.com">support@quiettechsolutions.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
 </body>
 </html>
